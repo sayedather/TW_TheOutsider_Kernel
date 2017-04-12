@@ -34,3 +34,10 @@ debug.atrace.tags.enableflags=0
 ro.bootimage.build.date=Thu Mar 16 15:18:56 KST 2017
 ro.bootimage.build.date.utc=1489645136
 ro.bootimage.build.fingerprint=samsung/hero2ltexx/hero2lte:7.0/NRD90M/G935FXXU1DQCG:user/test-keys
+#
+# CUSTOM_KERNEL_TWEAKS
+#
+boot.fps=36
+shutdown.fps=26
+ro.securestorage.support=false
+ro.sys.fw.bg_apps_limit=60
