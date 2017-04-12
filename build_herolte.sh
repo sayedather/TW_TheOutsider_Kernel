@@ -339,7 +339,7 @@ FUNC_BUILD_ZIP()
 	echo " "
 	echo "Creating flashable zip..."
 	echo " "
-	zip -r -x .gitignore -9 ../$KERNEL_NAME-$KERNEL_VERSION-$MODEL.zip .
+	zip -r -x .gitignore -9 ../$KERNEL_NAME-Kernel-v$KERNEL_VERSION-$MODEL.zip .
 	echo " "
 }
 
