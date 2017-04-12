@@ -2,10 +2,6 @@
 # kernel build script by Tkkg1994 v0.6 (optimized from apq8084 kernel source)
 # adapted and improved by kylothow for The_Outsider Kernel
 
-make clean
-make ARCH=arm64 distclean
-make mrproper
-
 export MODEL=herolte
 export VARIANT=eur
 export ARCH=arm64
@@ -59,6 +55,13 @@ hero2lte)
 	exit 1
 	;;
 esac
+
+FUNC_CLEAN_ENVIRONMENT()
+{
+	make clean
+	make ARCH=arm64 distclean
+	make mrproper
+}
 
 FUNC_CLEAN_DTB()
 {
@@ -340,6 +343,7 @@ rm -rf ./build.log
 (
 	START_TIME=`date +%s`
 
+	FUNC_CLEAN_ENVIRONMENT
 	FUNC_BUILD_KERNEL
 	FUNC_BUILD_RAMDISK
 	FUNC_BUILD_ZIP
