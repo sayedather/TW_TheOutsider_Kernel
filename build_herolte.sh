@@ -8,7 +8,7 @@ export ARCH=arm64
 KERNEL_VERSION="1.0.0"
 KERNEL_NAME="The_Outsider"
 export LOCALVERSION=-${KERNEL_NAME}-v${KERNEL_VERSION}
-export BUILD_CROSS_COMPILE=../gcc-linaro-6.3.1-2017.02-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-
+export BUILD_CROSS_COMPILE=../arm-linux-androideabi-7.x/bin/arm-linux-androideabi-
 export BUILD_JOB_NUMBER=`grep processor /proc/cpuinfo|wc -l`
 
 RDIR=$(pwd)
@@ -58,7 +58,10 @@ esac
 
 FUNC_CLEAN_ENVIRONMENT()
 {
-	echo "Cleaning the build environment..."
+	echo ""
+	echo "=============================================="
+	echo "START : FUNC_CLEAN_ENVIRONMENT"
+	echo "=============================================="
 	echo ""
 	make clean
 	make ARCH=arm64 distclean

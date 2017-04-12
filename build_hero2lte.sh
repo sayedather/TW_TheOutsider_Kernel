@@ -58,7 +58,10 @@ esac
 
 FUNC_CLEAN_ENVIRONMENT()
 {
-	echo "Cleaning the build environment..."
+	echo ""
+	echo "=============================================="
+	echo "START : FUNC_CLEAN_ENVIRONMENT"
+	echo "=============================================="
 	echo ""
 	make clean
 	make ARCH=arm64 distclean
