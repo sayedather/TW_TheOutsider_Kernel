@@ -18,7 +18,7 @@ getprop ro.product.device >> device
 
 ui_print " "
 ui_print " ***************************************************"
-ui_print " ********   The Outsider Kernel project   **********"
+ui_print " *********   The Outsider Kernel project   *********"
 ui_print " *******   for Galaxy S7 and Galaxy S7 edge   ******"
 ui_print " ***************************************************"
 ui_print " ***************************************************"

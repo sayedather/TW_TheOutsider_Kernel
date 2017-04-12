@@ -18,7 +18,7 @@ getprop ro.product.device >> device
 
 ui_print " "
 ui_print " ***************************************************"
-ui_print " ********   The Outsider Kernel project   **********"
+ui_print " *********   The Outsider Kernel project   *********"
 ui_print " *******   for Galaxy S7 and Galaxy S7 edge   ******"
 ui_print " ***************************************************"
 ui_print " ***************************************************"
@@ -27,7 +27,7 @@ ui_print " ****   Supported models: SM-G930F/FD/W8/S/L/K   ***"
 ui_print " ****************   Version: 1.0.0   ***************"
 ui_print " ***************************************************"
 ui_print " "
-ui_print "   > Installing The Outsider Kernel for hero2lte..."
+ui_print "   > Installing The Outsider Kernel for herolte..."
 
 iif grep -q hero2lte device; then
   ui_print "   ... aborting! Your device is hero2lte."
