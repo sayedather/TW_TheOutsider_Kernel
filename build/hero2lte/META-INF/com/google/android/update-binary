@@ -17,17 +17,18 @@ unzip -o "$ZIP"
 getprop ro.product.device >> device
 
 ui_print " "
-ui_print " ***************************************************"
-ui_print " *********   The Outsider Kernel project   *********"
-ui_print " *******   for Galaxy S7 and Galaxy S7 edge   ******"
-ui_print " ***************************************************"
-ui_print " ***************************************************"
-ui_print " ************   Galaxy S7 edge edition   ***********"
-ui_print " ****   Supported models: SM-G935F/FD/W8/S/L/K   ***"
-ui_print " ****************   Version: 1.0.0   ***************"
-ui_print " ***************************************************"
+ui_print " *************************************************"
+ui_print " ********   The Outsider Kernel project   ********"
+ui_print " ******   for Galaxy S7 and Galaxy S7 edge   *****"
+ui_print " *************************************************"
+ui_print " *************************************************"
+ui_print " ***********   Galaxy S7 edge edition   **********"
+ui_print " ***   Supported models: SM-G935F/FD/W8/S/L/K   **"
+ui_print " ***************   Version: 1.0.0   **************"
+ui_print " *************************************************"
 ui_print " "
-ui_print "   > Installing The Outsider Kernel for hero2lte..."
+ui_print "   > Installing The Outsider Kernel"
+ui_print "     for hero2lte..."
 
 if grep -q hero2lte device; then
 	cat hero2lte-eur.img > /dev/block/platform/155a0000.ufs/by-name/BOOT
@@ -90,8 +91,8 @@ umount /system > /dev/null 2>&1
 ui_print " "
 ui_print " Everything done!"
 ui_print " "
-ui_print " ***************************************************"
-ui_print " ***************************************************"
+ui_print " *************************************************"
+ui_print " *************************************************"
 ui_print " "
 rm -rf /tmp/workdir
 sync
