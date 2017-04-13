@@ -5,7 +5,7 @@
 export MODEL=herolte
 export VARIANT=eur
 export ARCH=arm64
-KERNEL_VERSION="1.0.0"
+KERNEL_VERSION="1.0.1"
 KERNEL_NAME="The_Outsider"
 export LOCALVERSION=-${KERNEL_NAME}-v${KERNEL_VERSION}
 export BUILD_CROSS_COMPILE=../aarch64-linux-android-6.3/bin/aarch64-linux-android-
@@ -289,7 +289,7 @@ FUNC_BUILD_ZIP()
 {
 	cd $RDIR/build/$MODEL
 	rm $MODEL-$VARIANT.img
-	rm ../*hero2lte.zip
+	rm ../*-herolte.zip
 	case $MODEL in
 	herolte)
 		case $VARIANT in
