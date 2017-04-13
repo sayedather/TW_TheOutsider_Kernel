@@ -8,7 +8,7 @@ export ARCH=arm64
 KERNEL_VERSION="1.0.0"
 KERNEL_NAME="The_Outsider"
 export LOCALVERSION=-${KERNEL_NAME}-v${KERNEL_VERSION}
-export BUILD_CROSS_COMPILE=../gcc-linaro-6.3.1-2017.02-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-
+export BUILD_CROSS_COMPILE=../aarch64-linux-android-6.3/bin/aarch64-linux-android-
 export BUILD_JOB_NUMBER=`grep processor /proc/cpuinfo|wc -l`
 
 RDIR=$(pwd)
