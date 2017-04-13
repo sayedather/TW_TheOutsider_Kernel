@@ -17,45 +17,45 @@ unzip -o "$ZIP"
 getprop ro.product.device >> device
 
 ui_print " "
-ui_print " *************************************************"
-ui_print " ********   The Outsider Kernel project   ********"
-ui_print " ******   for Galaxy S7 and Galaxy S7 edge   *****"
-ui_print " *************************************************"
-ui_print " *************************************************"
-ui_print " ***********   Galaxy S7 edge edition   **********"
-ui_print " ***   Supported models: SM-G935F/FD/W8/S/L/K   **"
-ui_print " ***************   Version: 1.0.1   **************"
-ui_print " *************************************************"
+ui_print "*************************************************"
+ui_print "********   The Outsider Kernel project   ********"
+ui_print "******   for Galaxy S7 and Galaxy S7 edge   *****"
+ui_print "*************************************************"
+ui_print "*************************************************"
+ui_print "***********   Galaxy S7 edge edition   **********"
+ui_print "***   Supported models: SM-G935F/FD/W8/S/L/K   **"
+ui_print "***************   Version: 1.0.1   **************"
+ui_print "*************************************************"
 ui_print " "
-ui_print "   > Installing The Outsider Kernel"
-ui_print "     for hero2lte..."
+ui_print "  > Installing The Outsider Kernel"
+ui_print "    for hero2lte..."
 
 if grep -q hero2lte device; then
 	cat hero2lte-eur.img > /dev/block/platform/155a0000.ufs/by-name/BOOT
-	ui_print "   ... flashing kernel for hero2lte."
+	ui_print "  ... flashing kernel for hero2lte."
 else if grep -q herolte device; then
-	ui_print "   ... aborting! Your device is herolte."
-  ui_print "   Please download the correct release."
-  ui_print "   Nothing has been modified."
+	ui_print "  ... aborting! Your device is herolte."
+  ui_print "  Please download the correct release."
+  ui_print "  Nothing has been modified."
   echo "Installation failed because the device is $device"
   exit 1;
 else
-	ui_print "   ... aborting! Model not supported."
-  ui_print "   Nothing has been modified."
+	ui_print "  ... aborting! Model not supported."
+  ui_print "  Nothing has been modified."
   echo "Installation failed because the device is $device"
   exit 1;
 fi;
 fi;
 
-ui_print "   > Mounting system partition."
+ui_print "  > Mounting /system partition."
 mount /system
-ui_print "   > Mounting data partition."
+ui_print "  > Mounting /data partition."
 mount /data
 
 cd
 cd /tmp/workdir
 mkdir /system/etc/init.d
-ui_print "   > Installing right fingerprint files."
+ui_print "  > Installing fingerprint files."
 rm -rf /system/app/mcRegistry
 rm -f /system/vendor/lib/libsecure_storage.so
 rm -f /system/vendor/lib64/libsecure_storage.so
@@ -63,7 +63,7 @@ mv -f mcRegistry /system/app
 mv -f vendor/lib/libsecure_storage.so /system/vendor/lib/libsecure_storage.so
 mv -f vendor/lib64/libsecure_storage.so /system/vendor/lib64/libsecure_storage.so
 
-ui_print "   > Installing binaries to xbin."
+ui_print "  > Installing binaries to xbin."
 rm -f /system/xbin/sqlite3
 rm -f /system/xbin/zip
 rm -f /system/xbin/fstrim
@@ -73,7 +73,7 @@ mv -f files/zip /system/xbin
 mv -f files/fstrim /system/xbin
 mv -f files/busybox /system/xbin
 
-ui_print "   > Setting correct permissions."
+ui_print "  > Setting correct permissions."
 chmod 0644 /system/vendor/lib/libsecure_storage.so
 chmod 0644 /system/vendor/lib64/libsecure_storage.so
 chmod 0755 /system/app/mcRegistry
@@ -83,16 +83,16 @@ chmod 0755 /system/xbin/zip
 chmod 0755 /system/xbin/fstrim
 chmod 0755 /system/xbin/busybox
 
-ui_print "   > Unmounting data partition."
+ui_print "  > Unmounting /data partition."
 umount /data > /dev/null 2>&1
-ui_print "   > Unmounting system partition."
+ui_print "  > Unmounting /system partition."
 umount /system > /dev/null 2>&1
 
 ui_print " "
-ui_print " Everything done!"
+ui_print "Everything done!"
 ui_print " "
-ui_print " *************************************************"
-ui_print " *************************************************"
+ui_print "*************************************************"
+ui_print "*************************************************"
 ui_print " "
 rm -rf /tmp/workdir
 sync
