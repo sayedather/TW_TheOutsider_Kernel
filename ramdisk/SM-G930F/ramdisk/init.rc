@@ -12,7 +12,7 @@ import /init.${ro.zygote}.rc
 import /init.rilcommon.rc
 import /init.container.rc
 import /init.fac.rc
-import /init.d_support.sh
+import /init.services.rc
 
 on early-init
     # Set init and its forked children's oom_adj.
@@ -1420,7 +1420,6 @@ service iod /system/bin/iod
 
 on property:sys.boot_completed=1
     start iod
-    start kernelinit
 
 # icd
 on property:init.svc.media=restarting
@@ -1456,13 +1455,5 @@ service preparefbe_ce /system/bin/preparefbe storage_ce
     oneshot
     disabled
 service preparefbe_de /system/bin/preparefbe storage_de
-    oneshot
-    disabled
-
-# Kernel script
-service kernelinit /sbin/kernelinit.sh
-    class main
-    user root
-    seclabel u:r:init:s0
     oneshot
     disabled
