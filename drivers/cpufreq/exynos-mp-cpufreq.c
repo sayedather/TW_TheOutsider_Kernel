@@ -2722,7 +2722,7 @@ static int exynos_mp_cpufreq_parse_dt(struct device_node *np, cluster_type cl)
 				* (NR_CLUST1_CPUS + 1), GFP_KERNEL);
 
 		/* For Grade D and E phones, use stock for BIG freq_table */
-		if (asv_big < 7) {
+		if (asv_big < 6) {
 		ret = of_property_read_u32_array(np, "low_cl1_max_support_idx_table",
 				(unsigned int *)ptr->max_support_idx_table, NR_CLUST1_CPUS + 1);
 		/* For Grade C and B phones, use mid OC for BIG freq_table */
