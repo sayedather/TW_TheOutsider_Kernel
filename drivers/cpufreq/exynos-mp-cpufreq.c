@@ -1944,7 +1944,7 @@ static struct attribute *mp_attributes[] = {
 	&cluster0_min_freq.attr,
 	&cluster0_max_freq.attr,
 	&cluster0_volt_table.attr,
-	&cpu_dvfs_mode_control.attr,	
+	&cpu_dvfs_mode_control.attr,
 	NULL
 };
 
@@ -2794,19 +2794,30 @@ static int exynos_mp_cpufreq_parse_dt(struct device_node *np, cluster_type cl)
 		ptr->max_support_idx_table = kzalloc(sizeof(unsigned int)
 				* (NR_CLUST1_CPUS + 1), GFP_KERNEL);
 
-		/* For Grade D and E phones, use stock for BIG freq_table */
-		if (asv_big < 6) {
-		ret = of_property_read_u32_array(np, "low_cl1_max_support_idx_table",
-				(unsigned int *)ptr->max_support_idx_table, NR_CLUST1_CPUS + 1);
-		/* For Grade C and B phones, use mid OC for BIG freq_table */
-		} else if (asv_big < 13) {
-		ret = of_property_read_u32_array(np, "mid_cl1_max_support_idx_table",
-				(unsigned int *)ptr->max_support_idx_table, NR_CLUST1_CPUS + 1);
-		/* Grade A phones? That's amazing, let's unleash the Exynos */
-		} else {
-		ret = of_property_read_u32_array(np, "high_cl1_max_support_idx_table",
-				(unsigned int *)ptr->max_support_idx_table, NR_CLUST1_CPUS + 1);
-		}
+	if ( (autoasv == 1) ) {
+			/* For Grade D and E phones, use stock for BIG freq_table */
+			if (asv_big < 7) {
+			ret = of_property_read_u32_array(np, "low_cl1_max_support_idx_table",
+					(unsigned int *)ptr->max_support_idx_table, NR_CLUST1_CPUS + 1);
+			/* For Grade C and B phones, use mid OC for BIG freq_table */
+			} else if (asv_big < 13) {
+			ret = of_property_read_u32_array(np, "mid_cl1_max_support_idx_table",
+					(unsigned int *)ptr->max_support_idx_table, NR_CLUST1_CPUS + 1);
+			/* Grade A phones? That's amazing, let's unleash the Exynos */
+			} else {
+			ret = of_property_read_u32_array(np, "high_cl1_max_support_idx_table",
+					(unsigned int *)ptr->max_support_idx_table, NR_CLUST1_CPUS + 1);
+			}
+	} else if ( (autoasv == 2) ) {
+			ret = of_property_read_u32_array(np, "high_cl1_max_support_idx_table",
+					(unsigned int *)ptr->max_support_idx_table, NR_CLUST1_CPUS + 1);
+	} else if ( (autoasv == 3) ) {
+			ret = of_property_read_u32_array(np, "stock_cl1_max_support_idx_table",
+					(unsigned int *)ptr->max_support_idx_table, NR_CLUST1_CPUS + 1);
+	} else {
+			pr_err("%s: autoasv has failed to register big core freqs\n", __func__);
+	}
+
 
 		if (ret < 0)
 			return -ENODEV;
