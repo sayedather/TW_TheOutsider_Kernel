@@ -24,9 +24,10 @@ ui_print "*************************************************"
 ui_print "*************************************************"
 ui_print "**********   Galaxy S7 (flat) edition   *********"
 ui_print "***   Supported models: SM-G930F/FD/W8/S/L/K   **"
-ui_print "***************   Version: 1.0.2   **************"
+ui_print "***************   Version: 1.0.3   **************"
 ui_print "*************************************************"
 ui_print " "
+sleep 3
 ui_print "  > Installing The Outsider Kernel"
 ui_print "    for herolte..."
 
@@ -94,5 +95,6 @@ ui_print " "
 ui_print "*************************************************"
 ui_print "*************************************************"
 ui_print " "
+sleep 3
 rm -rf /tmp/workdir
 sync
