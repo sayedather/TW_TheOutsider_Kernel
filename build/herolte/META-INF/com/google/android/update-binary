@@ -24,14 +24,14 @@ ui_print "*************************************************"
 ui_print "*************************************************"
 ui_print "**********   Galaxy S7 (flat) edition   *********"
 ui_print "***   Supported models: SM-G930F/FD/W8/S/L/K   **"
-ui_print "***************   Version: 1.0.3   **************"
+ui_print "***************   Version: 1.1.0   **************"
 ui_print "*************************************************"
 ui_print " "
 sleep 3
 ui_print "  > Installing The Outsider Kernel"
 ui_print "    for herolte..."
 
-iif grep -q hero2lte device; then
+if grep -q hero2lte device; then
   ui_print "  ... aborting! Your device is hero2lte."
   ui_print "  Please download the correct release."
   ui_print "  Nothing has been modified."
