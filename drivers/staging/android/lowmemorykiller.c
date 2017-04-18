@@ -72,6 +72,11 @@ extern u64 zswap_pool_pages;
 extern atomic_t zswap_stored_pages;
 #endif
 
+#if defined(CONFIG_ESWAP)
+extern u64 eswap_pool_pages;
+extern atomic_t eswap_stored_pages;
+#endif
+
 static int test_task_flag(struct task_struct *p, int flag)
 {
 	struct task_struct *t = p;
@@ -177,6 +182,14 @@ static unsigned long lowmem_scan(struct shrinker *s, struct shrink_control *sc)
 			lowmem_print(3, "shown tasksize : %d\n", tasksize);
 			tasksize += (int)zswap_pool_pages * get_mm_counter(p->mm, MM_SWAPENTS)
 				/ atomic_read(&zswap_stored_pages);
+			lowmem_print(3, "real tasksize : %d\n", tasksize);
+		}
+#endif
+#if defined(CONFIG_ESWAP)
+		if (atomic_read(&eswap_stored_pages)) {
+			lowmem_print(3, "shown tasksize : %d\n", tasksize);
+			tasksize += (int)eswap_pool_pages * get_mm_counter(p->mm, MM_SWAPENTS)
+				/ atomic_read(&eswap_stored_pages);
 			lowmem_print(3, "real tasksize : %d\n", tasksize);
 		}
 #endif
@@ -344,4 +357,3 @@ module_init(lowmem_init);
 module_exit(lowmem_exit);
 
 MODULE_LICENSE("GPL");
-
