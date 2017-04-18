@@ -5,7 +5,7 @@
 export MODEL=hero2lte
 export VARIANT=eur
 export ARCH=arm64
-KERNEL_VERSION="1.2.2"
+KERNEL_VERSION="1.2.3"
 KERNEL_NAME="The_Outsider"
 export LOCALVERSION=-${KERNEL_NAME}-v${KERNEL_VERSION}
 export BUILD_CROSS_COMPILE=../aarch64-linux-android-6.3/bin/aarch64-linux-android-
