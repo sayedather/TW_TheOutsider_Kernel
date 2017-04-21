@@ -24,7 +24,7 @@ ui_print "*************************************************"
 ui_print "*************************************************"
 ui_print "**********   Galaxy S7 (flat) edition   *********"
 ui_print "***   Supported models: SM-G930F/FD/W8/S/L/K   **"
-ui_print "**********   Version: 1.2.5 - S8 Port   *********"
+ui_print "*********   Version: 1.2.5r3 - S8 Port   ********"
 ui_print "*************************************************"
 ui_print " "
 sleep 3
