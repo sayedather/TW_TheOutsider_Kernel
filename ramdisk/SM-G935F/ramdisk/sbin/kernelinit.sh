@@ -76,16 +76,16 @@ echo "0" > /proc/sys/vm/page-cluster
 echo "N" > /sys/module/sync/parameters/fsync_enabled
 
 # storage - internal
-echo "0" > /sys/block/mmcblk0/queue/iostats
-echo "zen" > /sys/block/mmblk0/queue/scheduler
-echo "1024" > /sys/block/mmcblk0/queue/read_ahead_kb
-echo "0" > /sys/block/mmcblk0/queue/rq_affinity
+echo "0" > /sys/block/sda/queue/iostats
+echo "zen" > /sys/block/sda/queue/scheduler
+echo "1024" > /sys/block/sda/queue/read_ahead_kb
+echo "0" > /sys/block/sda/queue/rq_affinity
 
 # storage - external
-echo "0" > /sys/block/mmcblk1/queue/iostats
-echo "zen" > /sys/block/mmblk1/queue/scheduler
-echo "2048" > /sys/block/mmcblk1/queue/read_ahead_kb
-echo "0" > /sys/block/mmcblk1/queue/rq_affinity
+echo "0" > /sys/block/mmcblk0/queue/iostats
+echo "zen" > /sys/block/mmcblk0/queue/scheduler
+echo "2048" > /sys/block/mmcblk0/queue/read_ahead_kb
+echo "0" > /sys/block/mmcblk0/queue/rq_affinity
 
 # entropy
 echo "1024" > /proc/sys/kernel/random/read_wakeup_threshold
