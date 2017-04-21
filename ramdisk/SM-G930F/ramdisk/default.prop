@@ -35,6 +35,7 @@ boot.fps=36
 shutdown.fps=26
 ro.sys.fw.bg_apps_limit=60
 ro.securestorage.support=false
+wlan.wfd.hdcp=disable
 #
 # BOOTIMAGE_BUILD_PROPERTIES
 #
