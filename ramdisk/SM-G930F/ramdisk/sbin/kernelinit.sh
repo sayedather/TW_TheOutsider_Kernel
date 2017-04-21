@@ -55,15 +55,10 @@ echo "1" > /sys/devices/14ac0000.mali/dvfs_governor
 # minfree
 echo "1536,2048,2560,8192,16384,20480" > /sys/module/lowmemorykiller/parameters/minfree
 
-# ksm
-echo "1" > /sys/kernel/mm/ksm/run
-echo "0" > /sys/kernel/mm/ksm/deferred_timer
-echo "35" > /sys/kernel/mm/ksm/sleep_millisecs
-
 # zram
 swapoff "/dev/block/zram0/" > dev/null 2>&1
 echo "1" /sys/block/zram0/reset
-echo "268435456" > sys/block/zram0/disksize
+echo "536870912" > sys/block/zram0/disksize
 mkswap "/dev/block/zram0/" > dev/null 2>&1
 swapon "/dev/block/zram0/" > dev/null 2>&1
 echo "lz4" > /sys/block/zram0/comp_algorithm
@@ -76,16 +71,16 @@ echo "0" > /proc/sys/vm/page-cluster
 echo "N" > /sys/module/sync/parameters/fsync_enabled
 
 # storage - internal
-echo "0" > /sys/block/sda/queue/iostats
-echo "zen" > /sys/block/sda/queue/scheduler
-echo "1024" > /sys/block/sda/queue/read_ahead_kb
-echo "0" > /sys/block/sda/queue/rq_affinity
-
-# storage - external
 echo "0" > /sys/block/mmcblk0/queue/iostats
 echo "zen" > /sys/block/mmcblk0/queue/scheduler
-echo "2048" > /sys/block/mmcblk0/queue/read_ahead_kb
+echo "1024" > /sys/block/mmcblk0/queue/read_ahead_kb
 echo "0" > /sys/block/mmcblk0/queue/rq_affinity
+
+# storage - external
+echo "0" > /sys/block/mmcblk0p1/queue/iostats
+echo "zen" > /sys/block/mmcblk0p1/queue/scheduler
+echo "2048" > /sys/block/mmcblk0p1/queue/read_ahead_kb
+echo "0" > /sys/block/mmcblk0p1/queue/rq_affinity
 
 # entropy
 echo "1024" > /proc/sys/kernel/random/read_wakeup_threshold
