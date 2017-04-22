@@ -24,7 +24,7 @@ ui_print "*************************************************"
 ui_print "*************************************************"
 ui_print "***********   Galaxy S7 edge edition   **********"
 ui_print "***   Supported models: SM-G935F/FD/W8/S/L/K   **"
-ui_print "*********   Version: 1.2.5r3 - S8 Port   ********"
+ui_print "**********   Version: 1.3.0 - S8 Port   *********"
 ui_print "*************************************************"
 ui_print " "
 sleep 3
