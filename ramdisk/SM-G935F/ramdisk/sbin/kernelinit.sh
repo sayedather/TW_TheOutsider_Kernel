@@ -32,7 +32,7 @@ do
 	chmod "644" /sys/devices/system/cpu/cpu$i/cpufreq/scaling_max_freq
 	echo "2600000" > /sys/devices/system/cpu/cpu$i/cpufreq/scaling_max_freq
 	chmod "444" /sys/devices/system/cpu/cpu$i/cpufreq/scaling_max_freq
-	echo "ondemand" > /sys/devices/system/cpu/cpu$i/cpufreq/scaling_governor
+	echo "interactive" > /sys/devices/system/cpu/cpu$i/cpufreq/scaling_governor
 done
 
 # cpu - little
@@ -44,7 +44,7 @@ do
 	chmod "644" /sys/devices/system/cpu/cpu$i/cpufreq/scaling_max_freq
 	echo "1586000" > /sys/devices/system/cpu/cpu$i/cpufreq/scaling_max_freq
 	chmod "444" /sys/devices/system/cpu/cpu$i/cpufreq/scaling_max_freq
-	echo "ondemand" > /sys/devices/system/cpu/cpu$i/cpufreq/scaling_governor
+	echo "interactive" > /sys/devices/system/cpu/cpu$i/cpufreq/scaling_governor
 done
 
 # gpu
@@ -67,9 +67,10 @@ echo "4" > /sys/block/zram0/max_comp_streams
 # vm
 echo "0" > /proc/sys/vm/page-cluster
 
-# storage
+# i/o
 echo "N" > /sys/module/sync/parameters/fsync_enabled
-echo > "1" > /proc/sys/vm/laptop_mode
+echo "1" > /proc/sys/vm/laptop_mode
+echo "0" > /sys/kernel/sched/gentle_fair_sleepers
 
 # storage - internal
 echo "0" > /sys/block/mmcblk0/queue/iostats
