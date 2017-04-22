@@ -32,7 +32,7 @@ do
 	chmod "644" /sys/devices/system/cpu/cpu$i/cpufreq/scaling_max_freq
 	echo "2600000" > /sys/devices/system/cpu/cpu$i/cpufreq/scaling_max_freq
 	chmod "444" /sys/devices/system/cpu/cpu$i/cpufreq/scaling_max_freq
-	echo "interactive" > /sys/devices/system/cpu/cpu$i/cpufreq/scaling_governor
+	echo "ondemand" > /sys/devices/system/cpu/cpu$i/cpufreq/scaling_governor
 done
 
 # cpu - little
@@ -44,7 +44,7 @@ do
 	chmod "644" /sys/devices/system/cpu/cpu$i/cpufreq/scaling_max_freq
 	echo "1586000" > /sys/devices/system/cpu/cpu$i/cpufreq/scaling_max_freq
 	chmod "444" /sys/devices/system/cpu/cpu$i/cpufreq/scaling_max_freq
-	echo "interactive" > /sys/devices/system/cpu/cpu$i/cpufreq/scaling_governor
+	echo "ondemand" > /sys/devices/system/cpu/cpu$i/cpufreq/scaling_governor
 done
 
 # gpu
