@@ -19,8 +19,8 @@ mount -o rw,remount /system
 # alter system properties
 /sbin/resetprop -v -n ro.boot.warranty_bit "0"
 /sbin/resetprop -v -n ro.warranty_bit "0"
-/sbin/resetprop -n sec.fle.encryption.status "encrypted"
-/sbin/resetprop -n ro.crypto.state "encrypted"
+#/sbin/resetprop -n sec.fle.encryption.status "encrypted"
+#/sbin/resetprop -n ro.crypto.state "encrypted"
 /sbin/resetprop -n ro.boot.veritymode "enforcing"
 /sbin/resetprop -n ro.boot.verifiedbootstate "green"
 /sbin/resetprop -n ro.boot.flash.locked "1"
