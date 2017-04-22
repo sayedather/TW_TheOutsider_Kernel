@@ -69,6 +69,7 @@ echo "0" > /proc/sys/vm/page-cluster
 
 # storage
 echo "N" > /sys/module/sync/parameters/fsync_enabled
+echo > "1" > /proc/sys/vm/laptop_mode
 
 # storage - internal
 echo "0" > /sys/block/mmcblk0/queue/iostats
@@ -83,7 +84,7 @@ echo "2048" > /sys/block/mmcblk0p1/queue/read_ahead_kb
 echo "0" > /sys/block/mmcblk0p1/queue/rq_affinity
 
 # entropy
-echo "1024" > /proc/sys/kernel/random/read_wakeup_threshold
+echo "896" > /proc/sys/kernel/random/read_wakeup_threshold
 echo "2048" > /proc/sys/kernel/random/write_wakeup_threshold
 
 # network
